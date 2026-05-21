@@ -84,12 +84,15 @@
 
 .header h1 {
     color: white;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.8);
     font-size: 6.2rem;
     font-family: "Playfair-Italic";
 }
 
 .header h2 {
     color: white;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
     font-family: "Inter";
     font-size: 0.8rem;
     width: 50%;
@@ -98,3 +101,44 @@
 .highlight {
     color: #C9A87C;
 }
+
+.locations {
+    display: flex;
+}
+
+.location-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0E8DC;
+    padding: 80px;
+    width: 100%;
+    align-items: center;
+}
+
+.location-container h1 {
+    font-size: 2.5rem;
+    color: #142334;
+    font-family: "Playfair-Italic";
+    width: auto;
+}
+
+.location-container h2 {
+    color: #142334;
+    font-family: "Inter";
+    width: auto;
+    font-size: 1.0rem;
+}
+
+.highlight-2 {
+    color: #2E6E8E;
+}
+
+.location-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    width: 90%;
+    justify-content: space-evenly;
+}
+

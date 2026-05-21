@@ -38,6 +38,20 @@
     </div>
 </header>
 
+<div class="location-container">
+    <div class="location-text">
+        <h1>Plekken om <span class="highlight-2">te <br>
+                dromen</span>  <br>
+            en te boeken.</h1>
+        <h2>Een selectie van onze meest geboekte bestemmingen. <br>
+            Blader door de kaarten en kies waar uw volgende reis <br>
+            begint.</h2>
+    </div>
+    <a href="" class=""></a>
+    <a href="" class=""></a>
+    <div class="location-image"></div>
+</div>
+
 
 </body>
 </html>
