@@ -142,3 +142,19 @@
     justify-content: space-evenly;
 }
 
+.pictures-slides {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.arrow-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -47,8 +47,11 @@
             Blader door de kaarten en kies waar uw volgende reis <br>
             begint.</h2>
     </div>
-    <a href="" class=""></a>
-    <a href="" class=""></a>
+    <div class="pictures-slides">
+    <a href="" class="arrow-button"></a>
+    <h3>1/6</h3>
+    <a href="" class="arrow-button"></a>
+    </div>
     <div class="location-image"></div>
 </div>
 
