@@ -48,11 +48,49 @@
             begint.</h2>
     </div>
     <div class="pictures-slides">
-    <a href="" class="arrow-button"></a>
-    <h3>1/6</h3>
-    <a href="" class="arrow-button"></a>
+    <a href="" class="arrow-button">
+        <img src="assets/Vector.png" alt="">
+    </a>
+    <h3>1 / 6</h3>
+    <a href="" class="arrow-button-2">
+        <img src="assets/Vector.png" alt="">
+    </a>
     </div>
-    <div class="location-image"></div>
+
+    <div class="location-examples">
+    <div class="location-image">
+        <img src="assets/Santorini_Small_Picture.png" alt="">
+        <img src="assets/Male_Small_Picture.png" alt="">
+        <img src="assets/Amalfikust_Small_Pictures.png" alt="">
+    </div>
+       <div class="location-text">
+        <div class="location-text-1">
+            <h1>Santorini</h1>
+            <h2>Witgekalkte cliffside villa's met privébutler en uitzicht op
+                de caldera bij zonsondergang.</h2>
+            <h3>€4.200</h3>
+            <h4>Griekenland</h4>
+            <h4>v.a. p.p. / 7 nachten</h4>
+        </div>
+        <div class="location-text-2">
+            <h1>Malé Atol</h1>
+            <h2>Overwater villa's, huisrif binnen handbereik, en
+                privédiners op een onbewoond zandeiland.</h2>
+            <h3>€7.800</h3>
+            <h4>Maldiven</h4>
+            <h4>v.a. p.p. / 7 nachten</h4>
+        </div>
+        <div class="location-text-3">
+            <h1>Amalfikust</h1>
+            <h2>Citroengaarden, klassieke Riva-boottochten, en intieme
+                tafels in Positano.</h2>
+            <h3>€5.400</h3>
+            <h4>Italië</h4>
+            <h4>v.a. p.p. / 7 nachten</h4>
+        </div>
+       </div>
+
+    </div>
 </div>
 
 

@@ -133,6 +133,12 @@
     color: #2E6E8E;
 }
 
+.location-examples {
+    display: flex;
+    margin-left: 7%;
+    flex-direction: column;
+}
+
 .location-text {
     display: flex;
     flex-direction: row;
@@ -140,6 +146,7 @@
     gap: 40px;
     width: 90%;
     justify-content: space-evenly;
+
 }
 
 .pictures-slides {
@@ -147,6 +154,8 @@
     flex-direction: row;
     align-items: center;
     gap: 15px;
+    margin-left: 35%;
+    font-family: "Playfair-Italic";
 }
 
 .arrow-button {
@@ -157,4 +166,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: rotate(180deg);
+}
+
+.arrow-button-2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-image {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-top: 10%;
 }
