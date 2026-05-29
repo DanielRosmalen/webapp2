@@ -1,4 +1,37 @@
-﻿footer{
-    background: #142334;
+﻿*{
+    padding: 0;
+    margin: 0;
+}
+
+footer{
+    background-color: #142334;
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.footer-container{
+    display: flex;
+}
+.blok1{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.tegna-img{
+    height: 100px;
+    width: 150px;
+}
+.locatie{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.locatie-titel{
+    color: #C9A87C;
+}
+.contact{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.contact-titel{
+    color: #C9A87C;
 }
