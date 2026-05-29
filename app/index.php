@@ -1,4 +1,12 @@
 <?php
+$pdo = new PDO(
+        "mysql:host=db;dbname=tegna_travels;charset=utf8mb4",
+             "root", "rootpassword",
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ]
+);
+
+$trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,61 +46,99 @@
     </div>
 </header>
 
+<form class="search-bar" method="get" action="">
+    <div class="search-tabs">
+        <button type="button" class="tab tab-active">Reizen</button>
+        <button type="button" class="tab">Privé villa's</button>
+        <button type="button" class="tab">Cruises</button>
+        <button type="button" class="tab">Op maat</button>
+    </div>
+
+    <div class="search-fields">
+
+        <div class="search-field">
+            <label for="bestemming">Bestemming</label>
+            <select name="bestemming" id="bestemming">
+                <option value="">Kies een bestemming</option>
+                <?php foreach ($trips as $trip) : ?>
+                <option value="<?= htmlspecialchars($trip['locatie']) ?>">
+                <?= htmlspecialchars($trip['locatie']) ?>, <?= htmlspecialchars($trip['land']) ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="search-field">
+            <label for="vertek">Vertrek</label>
+            <input type="date" name="vertek" id="vertek">
+        </div>
+
+        <div class="search-field">
+            <label for="terug">Terug</label>
+            <input type="date" name="terug" id="terug">
+        </div>
+
+        <div class="search-field">
+            <label for="reizigers">Reizigers</label>
+            <select name="reizigers" id="reizigers">
+                <option value="1">1 Volwassenen</option>
+                <option value="2">2 Volwassenen</option>
+                <option value="3">3 Volwassenen</option>
+                <option value="4">4 Volwassenen</option>
+            </select>
+        </div>
+
+        <button type="submit" class="search-button">Zoeken</button>
+    </div>
+</form>
+
 <div class="location-container">
     <div class="location-text">
         <h1>Plekken om <span class="highlight-2">te <br>
                 dromen</span>  <br>
             en te boeken.</h1>
+
+        <div class="location-text-right">
         <h2>Een selectie van onze meest geboekte bestemmingen. <br>
             Blader door de kaarten en kies waar uw volgende reis <br>
             begint.</h2>
-    </div>
-    <div class="pictures-slides">
-    <a href="" class="arrow-button">
+
+            <div class="pictures-slides">
+    <button type="button" class="arrow-button">
         <img src="assets/Vector.png" alt="">
-    </a>
+    </button>
     <h3>1 / 6</h3>
-    <a href="" class="arrow-button-2">
+    <button type="button" class="arrow-button-2">
         <img src="assets/Vector.png" alt="">
-    </a>
+    </button>
+            </div>
+        </div>
     </div>
 
-    <div class="location-examples">
-    <div class="location-image">
-        <img src="assets/Santorini_Small_Picture.png" alt="">
-        <img src="assets/Male_Small_Picture.png" alt="">
-        <img src="assets/Amalfikust_Small_Pictures.png" alt="">
-    </div>
-       <div class="location-text">
-        <div class="location-text-1">
-            <h1>Santorini</h1>
-            <h2>Witgekalkte cliffside villa's met privébutler en uitzicht op
-                de caldera bij zonsondergang.</h2>
-            <h3>€4.200</h3>
-            <h4>Griekenland</h4>
-            <h4>v.a. p.p. / 7 nachten</h4>
-        </div>
-        <div class="location-text-2">
-            <h1>Malé Atol</h1>
-            <h2>Overwater villa's, huisrif binnen handbereik, en
-                privédiners op een onbewoond zandeiland.</h2>
-            <h3>€7.800</h3>
-            <h4>Maldiven</h4>
-            <h4>v.a. p.p. / 7 nachten</h4>
-        </div>
-        <div class="location-text-3">
-            <h1>Amalfikust</h1>
-            <h2>Citroengaarden, klassieke Riva-boottochten, en intieme
-                tafels in Positano.</h2>
-            <h3>€5.400</h3>
-            <h4>Italië</h4>
-            <h4>v.a. p.p. / 7 nachten</h4>
-        </div>
+    <div class="destinations-track">
+
+        <?php foreach ($trips as $trip) : ?>
+
+    <div class="destination-card">
+        <img src="assets/<?= htmlspecialchars($trip['foto']) ?>" alt="<?= htmlspecialchars($trip['locatie']) ?>">
+        <div class="destination">
+            <div class="destination-header">
+                <h1><?= htmlspecialchars($trip['locatie']) ?></h1>
+                <h3>€<?= number_format($trip['prijs'], 0, ',', '.') ?></h3>
+            </div>
+       <div class="destination-sub">
+           <h4><?= htmlspecialchars($trip['land']) ?></h4>
+           <h4>v.a. p.p. / <?= htmlspecialchars($trip['duur']) ?></h4>
        </div>
-
+           <h2><?= htmlspecialchars($trip['beschrijving']) ?></h2>
+        </div>
     </div>
+
+    <?php endforeach; ?>
+    </div>
+
 </div>
 
-
+<script src="script.js" defer></script>
 </body>
 </html>
