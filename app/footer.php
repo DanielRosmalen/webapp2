@@ -13,7 +13,12 @@ html<!doctype html>
 
     <footer>
         <div class="footer-container">
-        <div class="blok1"></div>
+        <div class="blok1">
+            <div class="logo"></div>
+            <div class="korte-info"></div>
+            <div class="locatie"></div>
+            <div class="contact-info"></div>
+        </div>
         <div class="blok2"></div>
         <div class="blok3"></div>
             <div class="blok4"></div>
