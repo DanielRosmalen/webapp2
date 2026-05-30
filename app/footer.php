@@ -14,18 +14,19 @@
 
     <footer>
         <div class="footer-container">
+            <div class="footer-container-top">
         <div class="blok1">
             <div class="logo"><img src="assets/img/tegna_travels_logo.png" alt="tegna logo" class=tegna-img></div>
             <div class="korte-info">vlieg nu met het best bookingorganisatie tegna travels</div>
             <div class="locatie">
                 <p class="locatie-titel">studio</p>
-                <p>adressregel 1</p>
-                <p>postcode plaats</p>
+                <p>maghrebstraat 1</p>
+                <p>7587ZW Ooier</p>
             </div>
             <div class="contact-info">
                 <p class="contact-titel">bereikbaar</p>
-                <p>telefoonnummer</p>
-                <p>emailadress</p>
+                <p>telefoonnummer: 067837274</p>
+                <p>email: tegnatraveling@outlook.com</p>
             </div>
         </div>
         <div class="blok2">
@@ -38,9 +39,38 @@
                 <p>last-minute</p>
             </div>
         </div>
-        <div class="blok3"></div>
-            <div class="blok4"></div>
+        <div class="blok3">
+            <p class="bureau-titel">BUREAU</p>
+            <div class="wrap-links">
+                <p>over ons</p>
+                <p>reisontwerps</p>
+                <p>pers & awards</p>
+                <p>carriere</p>
             </div>
+        </div>
+            <div class="blok4">
+                <p class="boek-titel">BOEK</p>
+                <div class="wrap-links">
+                    <p>boek je reis</p>
+                    <p>reisverzekering</p>
+                    <p>veelgestelde vragen</p>
+                    <p>clientenportaal</p>
+                </div>
+            </div>
+            </div>
+            <div class="footer-container-bottom">
+        <div class="legale-links">
+            <div class="legale-links-links">
+                <p>© 2026 Tegna Travels · [ KvK plaatshouder ]</p>
+            </div>
+            <div class="legale-links-rechts">
+                <p>Privacy</p>
+                <p>Cookies</p>
+                <p>Algemene voorwaarden</p>
+            </div>
+        </div>
+        </div>
+        </div>
     </footer>
 </body>
 </html>

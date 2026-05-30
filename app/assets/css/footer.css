@@ -11,6 +11,18 @@ footer{
 }
 .footer-container{
     display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.footer-container-top{
+    display: flex;
+}
+.footer-container-bottom{
+    margin-top: 80px;
+    border-top: 2px solid #4a5a6a;
+    padding-top: 30px;
+    color: #F0E8DC;
 }
 .blok1{
     display: flex;
@@ -34,4 +46,25 @@ footer{
 }
 .contact-titel{
     color: #C9A87C;
+}
+.blok2, .blok3, .blok4{
+    margin-top: 20px;
+    margin-left: 150px;
+    color: white;
+}
+.reizen-titel, .boek-titel, .bureau-titel{
+    color: #C9A87C;
+    margin-bottom: 20px;
+}
+.wrap-links{
+    line-height: 30px;
+}
+.legale-links{
+    display: flex;
+    justify-content: space-between;
+
+}
+.legale-links-rechts{
+    display: flex;
+    gap: 20px;
 }
