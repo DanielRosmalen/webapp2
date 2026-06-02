@@ -137,6 +137,10 @@ body {
     color: #2E6E8E;
 }
 
+.location-text.hover-aanwezig span {
+    color: #142334;
+}
+
 .location-text {
     display: flex;
     flex-direction: row;
@@ -144,6 +148,10 @@ body {
     gap: 13%;
     width: 100%;
     max-width: 1000px;
+}
+
+.location-text.hover-actief h1 {
+    color: #2E6E8E;
 }
 
 .location-text-right {
