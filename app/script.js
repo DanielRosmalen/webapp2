@@ -5,6 +5,10 @@
     const rightButton = document.querySelector(".arrow-button-2")
     const plekkenOmTeDromen = document.querySelector(".location-text")
     const highLight = document.querySelector(".location-text")
+    const counter = document.getElementById("counter");
+    const max = Number(document.getElementById("total").textContent);
+    let count = 1;
+
 
     const getScrollAmount = () => {
         const card = document.querySelector(".destination-card")
@@ -12,11 +16,20 @@
         return card.offsetWidth + 25;
     };
 
+    function updateDisplay() {
+        counter.textContent = count;
+
+    }
+
     leftButton.addEventListener("click", () => {
         track.scrollBy({
                 left: -getScrollAmount(),
                 behavior: "smooth",
             });
+        if (count > 1) {
+        count--;
+        updateDisplay();
+    }
     });
 
     rightButton.addEventListener("click", () => {
@@ -24,6 +37,11 @@
             left: getScrollAmount(),
             behavior: "smooth",
         });
+        if (count < max) {
+
+            count++;
+            updateDisplay();
+    }
     });
 
     plekkenOmTeDromen.addEventListener("mouseover", () => {

@@ -1,12 +1,12 @@
 <?php
-$pdo = new PDO(
-        "mysql:host=db;dbname=tegna_travels;charset=utf8mb4",
-             "root", "rootpassword",
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ]
-);
+include 'conn.php';
 
 $trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
+
+$search = '%' . $_GET['search'] . '%' ;
+
+$trips = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll() ;
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +31,7 @@ $trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
         <a href="index.html" class="">Boek</a>
         </div>
         <div class="login">
-            <a href="#">Inloggen</a>
+            <a href="login.php">Inloggen</a>
             <a href="#" class="btn">Boek je reis</a>
         </div>
     </div>
@@ -57,15 +57,7 @@ $trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
     <div class="search-fields">
 
         <div class="search-field">
-            <label for="bestemming">Bestemming</label>
-            <select name="bestemming" id="bestemming">
-                <option value="">Kies een bestemming</option>
-                <?php foreach ($trips as $trip) : ?>
-                <option value="<?= htmlspecialchars($trip['locatie']) ?>">
-                <?= htmlspecialchars($trip['locatie']) ?>, <?= htmlspecialchars($trip['land']) ?>
-                </option>
-                <?php endforeach; ?>
-            </select>
+                <input type="text" class="search" name="search" placeholder="Zoek een reis voor...">
         </div>
 
         <div class="search-field">
@@ -107,7 +99,9 @@ $trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
     <button type="button" class="arrow-button">
         <img src="assets/Vector.png" alt="">
     </button>
-    <h3>1 / 6</h3>
+    <h3 id="counter">1</h3>
+                <span> / </span>
+                <h3 id="total"><? echo count($trips) ?></h3>
     <button type="button" class="arrow-button-2">
         <img src="assets/Vector.png" alt="">
     </button>
