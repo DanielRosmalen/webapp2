@@ -5,7 +5,7 @@ $trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
 
 $search = '%' . $_GET['search'] . '%' ;
 
-$trips = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll() ;
+$tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll() ;
 
 ?>
 <!doctype html>
@@ -84,6 +84,18 @@ $trips = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll(
     </div>
 </form>
 
+<?php
+
+    if (isset($_GET['search'])) {
+        echo '<div class="results">';
+        foreach ($tripsearch as $trip) {
+            echo $trip['locatie'] . ', ' . $trip['land'] . '<br>';
+        }
+        echo '</div>';
+    }
+
+?>
+
 <div class="location-container">
     <div class="location-text">
         <h1>Plekken om <span class="highlight-2">te <br>
@@ -101,7 +113,7 @@ $trips = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll(
     </button>
     <h3 id="counter">1</h3>
                 <span> / </span>
-                <h3 id="total"><? echo count($trips) ?></h3>
+                <h3 id="total"><?php echo count($trips) ?></h3>
     <button type="button" class="arrow-button-2">
         <img src="assets/Vector.png" alt="">
     </button>
@@ -114,17 +126,17 @@ $trips = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll(
         <?php foreach ($trips as $trip) : ?>
 
     <div class="destination-card">
-        <img src="assets/<?= htmlspecialchars($trip['foto']) ?>" alt="<?= htmlspecialchars($trip['locatie']) ?>">
+        <img src="assets/<?php echo $trip['foto'] ?>" alt="<?php echo $trip['locatie'] ?>">
         <div class="destination">
             <div class="destination-header">
-                <h1><?= htmlspecialchars($trip['locatie']) ?></h1>
-                <h3>€<?= number_format($trip['prijs'], 0, ',', '.') ?></h3>
+                <h1><?php echo $trip['locatie'] ?></h1>
+                <h3>€<?php echo number_format($trip['prijs'], 0, ',', '.')?></h3>
             </div>
        <div class="destination-sub">
-           <h4><?= htmlspecialchars($trip['land']) ?></h4>
-           <h4>v.a. p.p. / <?= htmlspecialchars($trip['duur']) ?></h4>
+           <h4><?php echo $trip['land'] ?></h4>
+           <h4>v.a. p.p. / <?php echo $trip['duur'] ?></h4>
        </div>
-           <h2><?= htmlspecialchars($trip['beschrijving']) ?></h2>
+           <h2><?php echo $trip['beschrijving'] ?></h2>
         </div>
     </div>
 
