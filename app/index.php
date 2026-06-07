@@ -1,9 +1,10 @@
 <?php
+session_start();
 include 'conn.php';
 
-$trips = $pdo->query("SELECT * FROM trips")->fetchAll() ;
+$trips = $pdo->query("SELECT * FROM trips")->fetchAll();
 
-$search = '%' . $_GET['search'] . '%' ;
+$search = '%' . ($_GET['search'] ?? ' '). '%' ;
 
 $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll() ;
 
@@ -30,10 +31,12 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
         <a href="index.html" class="">Over ons</a>
         <a href="index.html" class="">Boek</a>
         </div>
-        <div class="login">
-            <a href="login.php">Inloggen</a>
-            <a href="#" class="btn">Boek je reis</a>
-        </div>
+        <?php if (!isset($_SESSION['ingelogd'])) {
+        echo '<div class="login">';
+            echo '<a href="login.php">Inloggen</a>';
+            echo '<a href="#" class="btn">Boek je reis</a>';
+        echo '</div>';
+       } ?>
     </div>
 </nav>
 

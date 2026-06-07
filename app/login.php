@@ -1,12 +1,23 @@
-﻿<?php
+<?php
+session_start();
 include 'conn.php';
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
-}
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $users = $pdo->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'")->fetch();
+
+    if ($users) {
+        $_SESSION['ingelogd'] = true;
+        header('Location: index.php');
+        exit;
+    } else {
+        echo "onjuist wachtwoord of email.";
+    }
+}
 
 ?>
 <!doctype html>
