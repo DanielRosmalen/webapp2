@@ -37,6 +37,12 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
             echo '<a href="#" class="btn">Boek je reis</a>';
         echo '</div>';
        } ?>
+        <?php if (isset($_SESSION['ingelogd'])) {
+            echo '<div class="login">';
+            echo '<a href="account.php">Mijn Account</a>';
+            echo '<a href="#" class="btn">Boek je reis</a>';
+            echo '</div>';
+        } ?>
     </div>
 </nav>
 
@@ -44,7 +50,7 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
     <div class="header-content">
         <h1>Reizen die u <span class="highlight">nooit</span> ergens anders zult vinden.</h1>
         <h2>Tegna Travels ontwerpt reizen voor wie warmte, water en een traag
-            soort luxe zoekt — van privé-villa's in de Cycladen tot stille
+            soort luxe zoekt â€” van privÃ©-villa's in de Cycladen tot stille
             rifkampen in de Indische Oceaan.</h2>
     </div>
 </header>
@@ -52,7 +58,7 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
 <form class="search-bar" method="get" action="">
     <div class="search-tabs">
         <button type="button" class="tab tab-active">Reizen</button>
-        <button type="button" class="tab">Privé villa's</button>
+        <button type="button" class="tab">PrivÃ© villa's</button>
         <button type="button" class="tab">Cruises</button>
         <button type="button" class="tab">Op maat</button>
     </div>
@@ -133,7 +139,7 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
         <div class="destination">
             <div class="destination-header">
                 <h1><?php echo $trip['locatie'] ?></h1>
-                <h3>€<?php echo number_format($trip['prijs'], 0, ',', '.')?></h3>
+                <h3>â‚¬<?php echo number_format($trip['prijs'], 0, ',', '.')?></h3>
             </div>
        <div class="destination-sub">
            <h4><?php echo $trip['land'] ?></h4>

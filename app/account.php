@@ -1,12 +1,7 @@
 <?php
 session_start();
-include 'conn.php';
 
 include 'log.php';
-
-if(isset($_SESSION['ingelogd'])){
-    header('location: account.php');
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,12 +13,10 @@ if(isset($_SESSION['ingelogd'])){
     <title>Document</title>
 </head>
 <body>
-
-<form method="post">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Login</button>
-</form>
-
+<div>
+    <form method="post">
+        <button type="submit" name="loguit">uitloggen</button>
+    </form>
+</div>
 </body>
 </html>
