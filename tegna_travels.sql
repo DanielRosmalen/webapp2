@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Gegenereerd op: 04 jun 2026 om 19:21
+-- Gegenereerd op: 11 jun 2026 om 10:54
 -- Serverversie: 8.4.8
 -- PHP-versie: 8.3.30
 
@@ -58,18 +58,19 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `role` varchar(20) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `name`, `created`) VALUES
-(1, 'db.rosmalen@icloud.com', 'Billetjje', 'Adam', '2026-06-02 09:31:18'),
-(2, 'adamgeitenneuker@gmail.com', 'Billentjes123', 'Pikkelikker', '2026-06-02 09:31:52'),
-(8, 'Abshiri@gmail.com', 'AnaalSoldaat', 'Abshiri', '2026-06-02 09:57:55'),
-(9, '', '', '', '2026-06-02 09:59:03');
+INSERT INTO `users` (`id`, `email`, `password`, `name`, `created`, `role`) VALUES
+(1, 'db.rosmalen@icloud.com', 'Billetjje', 'Adam', '2026-06-02 09:31:18', 'user'),
+(2, 'adamgeitenneuker@gmail.com', 'Billentjes123', 'Pikkelikker', '2026-06-02 09:31:52', 'user'),
+(8, 'Abshiri@gmail.com', 'AnaalSoldaat', 'Abshiri', '2026-06-02 09:57:55', 'user'),
+(9, '', '', '', '2026-06-02 09:59:03', 'user');
 
 --
 -- Indexen voor geëxporteerde tabellen
