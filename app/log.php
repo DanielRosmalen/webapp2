@@ -14,10 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($users) {
         $_SESSION['ingelogd'] = true;
+        $_SESSION['id'] = $users['id'];
         header('Location: index.php');
         exit;
     } else {
         echo "onjuist wachtwoord of email.";
+        echo "<a href='wachtwoord.php'>Wachtwoord vergeten?</a>'>";
     }
 
 }

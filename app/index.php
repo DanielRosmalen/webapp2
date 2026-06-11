@@ -139,7 +139,7 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
         <div class="destination">
             <div class="destination-header">
                 <h1><?php echo $trip['locatie'] ?></h1>
-                <h3>â‚¬<?php echo number_format($trip['prijs'], 0, ',', '.')?></h3>
+                <h3>€<?php echo number_format($trip['prijs'], 0, ',', '.')?></h3>
             </div>
        <div class="destination-sub">
            <h4><?php echo $trip['land'] ?></h4>
@@ -147,6 +147,13 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
        </div>
            <h2><?php echo $trip['beschrijving'] ?></h2>
         </div>
+        <?php
+        if (isset($_SESSION['ingelogd'])) { ?>
+            <form method="post" action="boek.php">
+                <input type="hidden" name="trip_id" value="<?php echo $trip['id']; ?>">
+                <button type="submit" name="boek" class="boek-button">Boek Reis</button>
+            </form>
+      <?php } ?>
     </div>
 
     <?php endforeach; ?>

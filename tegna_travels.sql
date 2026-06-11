@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Gegenereerd op: 11 jun 2026 om 10:54
--- Serverversie: 8.4.8
--- PHP-versie: 8.3.30
+-- Generation Time: Jun 11, 2026 at 10:00 PM
+-- Server version: 9.7.0
+-- PHP Version: 8.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `trips`
+-- Table structure for table `boekingen`
+--
+
+CREATE TABLE `boekingen` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `trip_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trips`
 --
 
 CREATE TABLE `trips` (
@@ -38,7 +50,7 @@ CREATE TABLE `trips` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Gegevens worden geëxporteerd voor tabel `trips`
+-- Dumping data for table `trips`
 --
 
 INSERT INTO `trips` (`id`, `locatie`, `land`, `prijs`, `duur`, `beschrijving`, `foto`) VALUES
@@ -50,7 +62,7 @@ INSERT INTO `trips` (`id`, `locatie`, `land`, `prijs`, `duur`, `beschrijving`, `
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -63,44 +75,55 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Gegevens worden geëxporteerd voor tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `created`, `role`) VALUES
 (1, 'db.rosmalen@icloud.com', 'Billetjje', 'Adam', '2026-06-02 09:31:18', 'user'),
-(2, 'adamgeitenneuker@gmail.com', 'Billentjes123', 'Pikkelikker', '2026-06-02 09:31:52', 'user'),
-(8, 'Abshiri@gmail.com', 'AnaalSoldaat', 'Abshiri', '2026-06-02 09:57:55', 'user'),
-(9, '', '', '', '2026-06-02 09:59:03', 'user');
+(2, 'adamgeitenneuker@gmail.com', '', 'Pikkelikker', '2026-06-02 09:31:52', 'user'),
+(8, 'Abshiri@gmail.com', 'AnaalSoldaat', 'Abshiri', '2026-06-02 09:57:55', 'user');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `trips`
+-- Indexes for table `boekingen`
+--
+ALTER TABLE `boekingen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `trips`
 --
 ALTER TABLE `trips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `trips`
+-- AUTO_INCREMENT for table `boekingen`
+--
+ALTER TABLE `boekingen`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT voor een tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;

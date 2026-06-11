@@ -3,13 +3,15 @@ include 'conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $email = $_POST['email'];
+$wachtwoord = $_POST['password'];
 
 $users = $pdo->query("SELECT * FROM users WHERE email = '$email'")->fetch();
 
 if ($users) {
-    echo "verander wachtwoord";
+    $pdo->query("UPDATE users SET password = '$wachtwoord' WHERE email = '$email'");
+    echo "<h1>Wachtwoord geupdate!</h1>";
 } else {
-    echo "geen geldig email";
+    echo "<h1>Er bestaat geen account met de door u ingevoerde email</h1>";
 }
 }
 ?>
@@ -25,6 +27,7 @@ if ($users) {
 <body>
 <form method="POST">
     <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="New Password">
     <button type="submit">Wachtwoord vergeten</button>
 </form>
 </body>
