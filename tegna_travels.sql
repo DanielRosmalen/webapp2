@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jun 11, 2026 at 10:00 PM
--- Server version: 9.7.0
--- PHP Version: 8.3.31
+-- Gegenereerd op: 13 jun 2026 om 11:51
+-- Serverversie: 8.4.8
+-- PHP-versie: 8.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `boekingen`
+-- Tabelstructuur voor tabel `boekingen`
 --
 
 CREATE TABLE `boekingen` (
@@ -36,7 +36,28 @@ CREATE TABLE `boekingen` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trips`
+-- Tabelstructuur voor tabel `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `sterren` int NOT NULL,
+  `onderwerp` varchar(30) NOT NULL,
+  `beschrijving` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `user_id`, `sterren`, `onderwerp`, `beschrijving`) VALUES
+(1, 2, 2, 'Kut Vakantie', 'Abshir Adini heeft mij aangerand en verkracht op mijn vakantie, heb mij nog nooit zo onprettig gevoeld. Met zn kleine tollietje');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `trips`
 --
 
 CREATE TABLE `trips` (
@@ -50,7 +71,7 @@ CREATE TABLE `trips` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `trips`
+-- Gegevens worden geëxporteerd voor tabel `trips`
 --
 
 INSERT INTO `trips` (`id`, `locatie`, `land`, `prijs`, `duur`, `beschrijving`, `foto`) VALUES
@@ -62,7 +83,7 @@ INSERT INTO `trips` (`id`, `locatie`, `land`, `prijs`, `duur`, `beschrijving`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -75,7 +96,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `users`
+-- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `created`, `role`) VALUES
@@ -84,46 +105,58 @@ INSERT INTO `users` (`id`, `email`, `password`, `name`, `created`, `role`) VALUE
 (8, 'Abshiri@gmail.com', 'AnaalSoldaat', 'Abshiri', '2026-06-02 09:57:55', 'user');
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `boekingen`
+-- Indexen voor tabel `boekingen`
 --
 ALTER TABLE `boekingen`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `trips`
+-- Indexen voor tabel `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `trips`
 --
 ALTER TABLE `trips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `boekingen`
+-- AUTO_INCREMENT voor een tabel `boekingen`
 --
 ALTER TABLE `boekingen`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT voor een tabel `reviews`
+--
+ALTER TABLE `reviews`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `trips`
+-- AUTO_INCREMENT voor een tabel `trips`
 --
 ALTER TABLE `trips`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
