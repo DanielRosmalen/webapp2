@@ -1,8 +1,9 @@
 <?php
+session_start();
+include 'conn.php';
 
-if (isset($_POST['loguit'])) {
-    session_destroy();
-    header('Location: index.php');
+if(isset($_SESSION['ingelogd'])){
+    header('location: account.php');
     exit;
 }
 
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     } else {
         echo "onjuist wachtwoord of email.";
-        echo "<a href='wachtwoord.php'>Wachtwoord vergeten?</a>'>";
+        echo "<a href='wachtwoord.php'>Wachtwoord vergeten?</a>";
     }
 
 }

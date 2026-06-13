@@ -319,6 +319,47 @@ body {
     background-color: #2E6E8E;
 }
 
+.form-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 25px;
+    gap: 40px;
+}
+
+.form-card input, textarea, select{
+    border: none;
+    padding: 20px;
+    background-color: #F0E8DC;
+    border-radius: 10px;
+}
+
+.form-card button {
+    padding: 10px;
+    background-color: #142334;
+    color: white;
+}
+
+.card-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-card a {
+    text-decoration: none;
+    font-family: "Inter";
+}
 
 
 

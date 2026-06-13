@@ -2,7 +2,6 @@
 session_start();
 
 include 'conn.php';
-include 'log.php';
 
 $user_id = $_SESSION['id'];
 
@@ -45,8 +44,12 @@ $boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
 </div>
 <?php } ?>
 
-<div>
-    <form method="post" action="review.php">
+<div class="form-box">
+    <form method="post" action="review.php" class="form-card">
+        <div class="card-title">
+        <img src="assets/tegna_logo.png" alt="logo" width="100" height="39">
+        <h1>Review plaatsen</h1>
+        </div>
         <input type="text" name="onderwerp" id="onderwerp">
         <select name="sterren" id="sterren">
             <option value="1">1 STER</option>
@@ -61,7 +64,7 @@ $boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
 </div>
 
 <div>
-    <form method="post">
+    <form method="post" action="logout.php">
         <button type="submit" name="loguit">uitloggen</button>
     </form>
 </div>
