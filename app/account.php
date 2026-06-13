@@ -46,6 +46,21 @@ $boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
 <?php } ?>
 
 <div>
+    <form method="post" action="review.php">
+        <input type="text" name="onderwerp" id="onderwerp">
+        <select name="sterren" id="sterren">
+            <option value="1">1 STER</option>
+            <option value="2">2 STER</option>
+            <option value="3">3 STER</option>
+            <option value="4">4 STER</option>
+            <option value="5">5 STER</option>
+        </select>
+        <textarea name="review" id="review" cols="30" rows="10" placeholder="Schrijf je recensie..."></textarea>
+        <input type="submit" name="submit" id="submit">
+    </form>
+</div>
+
+<div>
     <form method="post">
         <button type="submit" name="loguit">uitloggen</button>
     </form>

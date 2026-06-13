@@ -8,6 +8,9 @@ $search = '%' . ($_GET['search'] ?? ' '). '%' ;
 
 $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll() ;
 
+$reviews = $pdo->query("SELECT * FROM reviews
+                              JOIN users ON reviews.user_id = users.id")->fetchAll();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -160,6 +163,16 @@ $tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetc
     </div>
 
 </div>
+
+<div>
+<?php foreach ($reviews as $review) { ?>
+    <h1 class="review"><?php echo $review['name'] ?></h1>
+    <h1 class="review"><?php echo $review['onderwerp'] ?></h1>
+    <h1 class="review"><?php echo $review['sterren'] ?></h1>
+    <h1 class="review"><?php echo $review['beschrijving'] ?></h1>
+    <?php } ?>
+</div>
+
 
 <script src="script.js" defer></script>
 </body>
