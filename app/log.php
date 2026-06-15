@@ -7,11 +7,13 @@ if(isset($_SESSION['ingelogd'])){
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $users = $pdo->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'")->fetch();
+    $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['email' => $email, 'password' => $password]);
+    $users = $stmt->fetch();
 
     if ($users) {
         $_SESSION['ingelogd'] = true;
@@ -23,5 +25,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<a href='wachtwoord.php'>Wachtwoord vergeten?</a>";
     }
 
-}
+
 ?>

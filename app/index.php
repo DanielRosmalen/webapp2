@@ -2,14 +2,23 @@
 session_start();
 include 'conn.php';
 
-$trips = $pdo->query("SELECT * FROM trips")->fetchAll();
+ $sql = "SELECT * FROM trips";
+ $stmt = $pdo->prepare($sql);
+ $stmt->execute();
+ $trips = $stmt->fetchAll();
 
 $search = '%' . ($_GET['search'] ?? ' '). '%' ;
 
-$tripsearch = $pdo->query("SELECT * FROM trips WHERE land LIKE '$search'")->fetchAll() ;
+ $sql = "SELECT * FROM trips WHERE land LIKE :search";
+ $stmt = $pdo->prepare($sql);
+ $stmt->execute(['search' => $search]);
+ $tripsearch = $stmt->fetchAll();
 
-$reviews = $pdo->query("SELECT * FROM reviews
-                              JOIN users ON reviews.user_id = users.id")->fetchAll();
+$sql = "SELECT * FROM reviews
+        JOIN users ON reviews.user_id = users.id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$reviews = $stmt->fetchAll();
 
 ?>
 <!doctype html>
@@ -164,13 +173,33 @@ $reviews = $pdo->query("SELECT * FROM reviews
 
 </div>
 
-<div>
-<?php foreach ($reviews as $review) { ?>
-    <h1 class="review"><?php echo $review['name'] ?></h1>
-    <h1 class="review"><?php echo $review['onderwerp'] ?></h1>
-    <h1 class="review"><?php echo $review['sterren'] ?></h1>
-    <h1 class="review"><?php echo $review['beschrijving'] ?></h1>
-    <?php } ?>
+<div class="review-slides">
+    <button type="button" class="arrow-button-3">
+        <img src="assets/Vector.png" alt="">
+    </button>
+    <h3 id="counter-2">1</h3>
+    <span> / </span>
+    <h3 id="total-reviews"><?php echo count($reviews) ?></h3>
+    <button type="button" class="arrow-button-4">
+        <img src="assets/Vector.png" alt="">
+    </button>
+</div>
+
+<div class="review-container">
+    <div class="reviews-track">
+        <?php foreach ($reviews as $review) { ?>
+            <div class="review-card">
+                <h2 class="review-name"><?php echo $review['name'] ?></h2>
+                <h3 class="review-subject"><?php echo $review['onderwerp'] ?></h3>
+            <div class="review-stars">
+        <?php for ($i = 0; $i < $review['sterren']; $i++ ) { ?>
+            <img src="assets/star.png" alt="ster" width="30" height="30">
+        <?php } ?>
+            </div>
+                <p class="review-desc"><?php echo $review['beschrijving'] ?></p>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 
 

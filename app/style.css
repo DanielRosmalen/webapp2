@@ -361,7 +361,89 @@ body {
     font-family: "Inter";
 }
 
+.reviews-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
 
+.reviews-track {
+    display: flex;
+    gap: 25px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.review-card {
+    width: 384px;
+    flex-shrink: 0;
+    background-color: white;
+    padding: 35px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-name {
+    font-family: "Playfair-Italic";
+    color: #142334;
+    font-size: 1.8rem;
+}
+
+review-subject {
+    font-family: "Inter";
+    color: #C9A87C;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.review-stars {
+    display: flex;
+    gap: 5px;
+}
+
+.review-desc {
+    font-family: "Inter";
+    color: black;
+    font-size: 0.9rem;
+}
+
+.review-slides {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-left: 35%;
+    font-family: "Playfair-Italic";
+}
+
+.arrow-button-3 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.arrow-button-4 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
 
 

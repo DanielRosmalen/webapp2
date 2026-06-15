@@ -5,11 +5,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $wachtwoord = $_POST['password'];
 
-    $users = $pdo->query("SELECT * FROM users WHERE email = '$email'")->fetch();
+    $sql = "SELECT * FROM users WHERE email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['email' => $email]);
+    $users = $stmt->fetch();
 
     if ($users) {
-        $pdo->query("UPDATE users SET password = '$wachtwoord' WHERE email = '$email'");
-        echo "<h1>Wachtwoord geupdate!</h1>";
+        $sql="UPDATE users SET password = :wachtwoord WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['wachtwoord' => $wachtwoord, 'email' => $email]);
+        header("location: login.php");
     } else {
         echo "<h1>Er bestaat geen account met de door u ingevoerde email</h1>";
     }

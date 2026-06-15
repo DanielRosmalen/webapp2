@@ -5,10 +5,13 @@ include 'conn.php';
 
 $user_id = $_SESSION['id'];
 
-$boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
-                            FROM boekingen
-                            JOIN trips ON boekingen.trip_id = trips.id
-                            WHERE boekingen.user_id = '$user_id'")->fetchAll();
+ $sql = "SELECT boekingen.id AS boeking_id, trips.*
+         FROM boekingen
+         JOIN trips ON boekingen.trip_id = trips.id
+         WHERE boekingen.user_id = :user_id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['user_id' => $user_id]);
+$boekingen  = $stmt->fetchAll();
 
 ?>
 <!doctype html>
@@ -22,7 +25,21 @@ $boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div>
+    <a href="index.php"><button id="back">Home pagina</button></a>
+    <form method="GET" class="account-options">
+        <button type="submit" name="boekingen" value="boekingen">Mijn Boekingen</button>
+        <button type="submit" name="review" value="review">Review Plaatsen</button>
+    </form>
+    <form method="post" action="logout.php">
+        <button type="submit" name="loguit">uitloggen</button>
+    </form>
+</div>
 <?php
+if (isset($_GET['boekingen'])) {
+    if (empty($boekingen)) {
+        echo '<div>Geen boekingen gevonden</div>';
+    }
     foreach ($boekingen as $boeking) { ?>
 <div class="destination-card">
     <img src="assets/<?php echo $boeking['foto'] ?>" alt="<?php echo $boeking['locatie'] ?>">
@@ -42,7 +59,9 @@ $boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
         <button type="submit" name="cancel" class="cancel-button">Annuleer Reis</button>
     </form>
 </div>
-<?php } ?>
+<?php } }  ?>
+
+<?php if (isset($_GET['review'])) { ?>
 
 <div class="form-box">
     <form method="post" action="review.php" class="form-card">
@@ -62,11 +81,6 @@ $boekingen = $pdo->query("SELECT boekingen.id AS boeking_id, trips.*
         <input type="submit" name="submit" id="submit">
     </form>
 </div>
-
-<div>
-    <form method="post" action="logout.php">
-        <button type="submit" name="loguit">uitloggen</button>
-    </form>
-</div>
+    <?php } ?>
 </body>
 </html>
