@@ -18,9 +18,9 @@
                 <h1 class="login-titel">tegna travels</h1>
                 <h2 class="login-subtitel">welkom bij tegna travels</h2>
             </div>
-            <form action="nieuweactie.php" method="POST">
+            <form action="./acties/login.php" method="POST">
                 <div class="input-box">
-                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="text" name="email" placeholder="Username" required>
                     <img src="assets/img/user.png" alt="" class="input-icon">
                 </div>
                 <div class="input-box">
