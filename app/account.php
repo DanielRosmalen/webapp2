@@ -25,16 +25,19 @@ $boekingen  = $stmt->fetchAll();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div>
+<div class="account-layout">
+    <div class="sidebar">
     <a href="index.php"><button id="back">Home pagina</button></a>
     <form method="GET" class="account-options">
         <button type="submit" name="boekingen" value="boekingen">Mijn Boekingen</button>
         <button type="submit" name="review" value="review">Review Plaatsen</button>
     </form>
-    <form method="post" action="logout.php">
+    <form method="post" action="logout.php" class="account-logout">
         <button type="submit" name="loguit">uitloggen</button>
     </form>
 </div>
+    <div class="content">
+        <div class="boekingen">
 <?php
 if (isset($_GET['boekingen'])) {
     if (empty($boekingen)) {
@@ -59,7 +62,8 @@ if (isset($_GET['boekingen'])) {
         <button type="submit" name="cancel" class="cancel-button">Annuleer Reis</button>
     </form>
 </div>
-<?php } }  ?>
+    <?php } }  ?>
+    </div>
 
 <?php if (isset($_GET['review'])) { ?>
 
@@ -82,5 +86,7 @@ if (isset($_GET['boekingen'])) {
     </form>
 </div>
     <?php } ?>
+    </div>
+</div>
 </body>
 </html>

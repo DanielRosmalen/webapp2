@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Gegenereerd op: 13 jun 2026 om 11:51
+-- Gegenereerd op: 16 jun 2026 om 09:18
 -- Serverversie: 8.4.8
 -- PHP-versie: 8.3.30
 

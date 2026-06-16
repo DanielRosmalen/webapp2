@@ -366,6 +366,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 50px;
+
 }
 
 .reviews-track {
@@ -376,6 +377,7 @@ body {
     width: 100%;
     max-width: 1200px;
     padding: 20px;
+    margin-left: 3%;
 }
 
 .review-card {
@@ -418,7 +420,7 @@ review-subject {
     flex-direction: row;
     align-items: center;
     gap: 15px;
-    margin-left: 35%;
+    margin-left: 43%;
     font-family: "Playfair-Italic";
 }
 
@@ -443,6 +445,64 @@ review-subject {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: #142334;
+    gap: 45px;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.account-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar button {
+    text-align: left;
+    border: none;
+    border-radius: none;
+    color: white;
+    background-color: #142334;
+    cursor: pointer;
+}
+
+.account-logout {
+    display: flex;
+    margin-top: auto;
+}
+
+.account-layout {
+    display: flex;
+}
+
+.content {
+    width: 100%;
+}
+
+.boekingen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.results {
+    display: flex;
+    background: #C9A87C;
+    border-radius: 12px;
+    gap: 12px;
+    max-width: 30%;
+    margin: auto;
+    padding: 20px;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
 }
 
 

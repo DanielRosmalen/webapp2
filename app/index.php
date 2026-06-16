@@ -107,15 +107,17 @@ $reviews = $stmt->fetchAll();
 
 <?php
 
-    if (isset($_GET['search'])) {
-        echo '<div class="results">';
-        foreach ($tripsearch as $trip) {
-            echo $trip['locatie'] . ', ' . $trip['land'] . '<br>';
-        }
-        echo '</div>';
-    }
-
-?>
+    if (isset($_GET['search'])) { ?>
+        <div class="results">
+      <?php foreach ($tripsearch as $trip) { ?>
+              <div class="result-item">
+                <h1><?php echo $trip['land'] ?></h1>
+                <h2><?php echo $trip['locatie'] ?></h2>
+                <p><?php echo $trip['beschrijving'] ?></p>
+              </div>
+       <?php } ?>
+        </div>
+   <?php } ?>
 
 <div class="location-container">
     <div class="location-text">
