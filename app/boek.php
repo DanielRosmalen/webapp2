@@ -7,7 +7,9 @@ $trip_id = $_POST['trip_id'];
 
 $sql = "INSERT INTO boekingen (user_id, trip_id) VALUES (:user_id, :trip_id)";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(['user_id' => $user_id, 'trip_id' => $trip_id]);
+$stmt->bindParam(':user_id', $user_id);
+$stmt->bindParam(':trip_id', $trip_id);
+$stmt->execute();
 header('Location: index.php');
 exit;
 ?>

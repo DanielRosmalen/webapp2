@@ -452,9 +452,7 @@ review-subject {
     flex-direction: column;
     width: 20%;
     background-color: #142334;
-    gap: 45px;
     padding: 20px;
-    min-height: 100vh;
 }
 
 .account-options {
@@ -504,6 +502,38 @@ review-subject {
     display: flex;
     flex-direction: column;
 }
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 45px;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .account-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%; min-height: auto;
+    }
+    .hamburger {
+        display: block;
+    }
+    .menu-items {
+        display: none; min-height: auto;
+    }
+
+    .sidebar:hover .menu-items {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 
 
 

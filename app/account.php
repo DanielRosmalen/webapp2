@@ -10,7 +10,8 @@ $user_id = $_SESSION['id'];
          JOIN trips ON boekingen.trip_id = trips.id
          WHERE boekingen.user_id = :user_id";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(['user_id' => $user_id]);
+$stmt->bindParam(':user_id', $user_id);
+$stmt->execute();
 $boekingen  = $stmt->fetchAll();
 
 ?>
@@ -27,6 +28,8 @@ $boekingen  = $stmt->fetchAll();
 <body>
 <div class="account-layout">
     <div class="sidebar">
+        <div class="hamburger"><img src="assets/hamburger.png" alt="menu-logo" width="30" height="30"></div>
+        <div class="menu-items">
     <a href="index.php"><button id="back">Home pagina</button></a>
     <form method="GET" class="account-options">
         <button type="submit" name="boekingen" value="boekingen">Mijn Boekingen</button>
@@ -36,6 +39,7 @@ $boekingen  = $stmt->fetchAll();
         <button type="submit" name="loguit">uitloggen</button>
     </form>
 </div>
+    </div>
     <div class="content">
         <div class="boekingen">
 <?php

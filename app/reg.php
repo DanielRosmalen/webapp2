@@ -8,7 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = trim($_POST['name']);
     $sql = "INSERT INTO users (email, password, name) VALUES (:email, :password, :name)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['email' => $email, 'password' => $password, 'name' => $name]);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':name', $name);
+    $stmt->execute();
     header('location: login.php');
     exit;
 }

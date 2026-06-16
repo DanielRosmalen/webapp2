@@ -11,7 +11,8 @@ $search = '%' . ($_GET['search'] ?? ' '). '%' ;
 
  $sql = "SELECT * FROM trips WHERE land LIKE :search";
  $stmt = $pdo->prepare($sql);
- $stmt->execute(['search' => $search]);
+ $stmt->bindParam(':search', $search);
+ $stmt->execute();
  $tripsearch = $stmt->fetchAll();
 
 $sql = "SELECT * FROM reviews

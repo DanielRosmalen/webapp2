@@ -12,7 +12,9 @@ if(isset($_SESSION['ingelogd'])){
 
     $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['email' => $email, 'password' => $password]);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
     $users = $stmt->fetch();
 
     if ($users) {

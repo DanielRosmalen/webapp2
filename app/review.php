@@ -9,7 +9,10 @@ $review = $_POST["review"];
 
 $sql = "INSERT INTO reviews (user_id, sterren, onderwerp, beschrijving) VALUES (:user_id, :sterren, :onderwerp, :review)";
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(['user_id' => $user_id, 'sterren' => $sterren, 'onderwerp' => $onderwerp, 'review' => $review]);
+$stmt->bindParam(':user_id', $user_id);
+$stmt->bindParam(':sterren', $sterren);
+$stmt->bindParam(':onderwerp', $onderwerp);
+$stmt->bindParam(':review', $review);
 $stmt->execute();
 header("Location: account.php");
 exit;
