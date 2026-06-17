@@ -1,96 +1,72 @@
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
-.full-container {
-    display: flex;
 
-}
-.main{
+.side-panel {
     display: flex;
     flex-direction: column;
-}
-.side-panel{
-    display: flex;
-    flex-direction: column;
-}
-.side-titel-box {
-    height: 70px;
+    justify-content: space-between;
     width: 200px;
-    padding-top: 20px;
-    background-color: #2A4566;
+    height: 100vh;
+    background-color: #2c3e5e;
+}
+
+.side-titel-box {
+    padding: 24px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.side-titel {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.side-subtitel {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.side-menu {
+    padding: 16px 0;
+}
+
+.side-menu-item {
+    padding: 10px 20px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.side-menu-item:hover {
     color: white;
 }
-.side-menu-box{
-    background-color: #1A4566;
-    width: 200px;
-    height: 500px;
-}
-.side-menu{
-    padding-left: 20px;
-    line-height: 50px;
-}
+
 .admin-logout-container {
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: #1A4566;
-    color: white;
-    width: 180px;
-    border-top: 1px solid #4a5a6a;
+    gap: 10px;
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 130px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 .user-img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin-right: 10px;
     background-color: #D9E2EC;
-
 }
+
 .user-img img {
     width: 30px;
     height: 30px;
-    
-  
 }
-.overzicht-container {
-    display: flex;  
-    padding: 20px;
-}
-.overzicht-box {
-    width: 250px;
-    height: 100px;
-    background-color: #1A4566;
+
+.dropdown {
+    position: relative;
     color: white;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-
-
-.welcome-img {
-    width: 1500px;
-    height: 200px;
-    border-radius: 50px;
-    
+    font-size: 13px;
+    cursor: pointer;
 }
