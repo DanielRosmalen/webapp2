@@ -1,3 +1,9 @@
+<?php
+include './acties/overzicht.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +23,8 @@
             <div class="side-menu-box">
                 <nav class="side-menu">
                     <p class="side-menu-item actief">Overzicht</p>
-                    <p class="side-menu-item">Producten</p>
-                    <p class="side-menu-item">Bestellingen</p>
+                    <p class="side-menu-item">trips</p>
+                    <p class="side-menu-item">reviews</p>
                 </nav>
             </div>
         </div>
@@ -33,5 +39,29 @@
         </div>
     </div>
 </header>
+<main>
+    <div class="main-topbar">
+        <div>
+            <h1 class="main-titel">Overzicht</h1>
+            <p class="main-datum">16 juni 2026</p>
+        </div>
+        <a href="../acties/logout.php">Uitloggen</a>
+    </div>
+
+    <div class="stats-container">
+        <div class="stats-box">
+            <p class="stats-label">Boekingen</p>
+            <h2 class="stats-cijfer"><?php echo count($boekingen)?></h2>
+        </div>
+        <div class="stats-box">
+            <p class="stats-label">trips</p>
+            <h2 class="stats-cijfer"><?php echo count($trips)?></h2>
+        </div>
+        <div class="stats-box">
+            <p class="stats-label">Revieuws</p>
+            <h2 class="stats-cijfer"><?php echo count($reviews)?></h2>
+        </div>
+    </div>
+</main>
 </body>
 </html>
