@@ -1,25 +1,8 @@
 <?php
 session_start();
-include 'conn.php';
+include './includes/conn.php';
+include './includes/index-include.php';
 
- $sql = "SELECT * FROM trips";
- $stmt = $pdo->prepare($sql);
- $stmt->execute();
- $trips = $stmt->fetchAll();
-
-$search = '%' . ($_GET['search'] ?? ' '). '%' ;
-
- $sql = "SELECT * FROM trips WHERE land LIKE :search";
- $stmt = $pdo->prepare($sql);
- $stmt->bindParam(':search', $search);
- $stmt->execute();
- $tripsearch = $stmt->fetchAll();
-
-$sql = "SELECT * FROM reviews
-        JOIN users ON reviews.user_id = users.id";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$reviews = $stmt->fetchAll();
 
 ?>
 <!doctype html>
@@ -30,7 +13,7 @@ $reviews = $stmt->fetchAll();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styling/style.css">
 </head>
 <body>
 <nav class="navbar">
@@ -68,10 +51,10 @@ $reviews = $stmt->fetchAll();
     </div>
 </header>
 
-<form class="search-bar" method="get" action="">
+<form class="search-bar" method="get">
     <div class="search-tabs">
         <button type="button" class="tab tab-active">Reizen</button>
-        <button type="button" class="tab">PrivÃ© villa's</button>
+        <button type="button" class="tab">Prive villa's</button>
         <button type="button" class="tab">Cruises</button>
         <button type="button" class="tab">Op maat</button>
     </div>
@@ -164,7 +147,7 @@ $reviews = $stmt->fetchAll();
         </div>
         <?php
         if (isset($_SESSION['ingelogd'])) { ?>
-            <form method="post" action="boek.php">
+            <form method="post" action="action/boek.php">
                 <input type="hidden" name="trip_id" value="<?php echo $trip['id']; ?>">
                 <button type="submit" name="boek" class="boek-button">Boek Reis</button>
             </form>
@@ -206,6 +189,6 @@ $reviews = $stmt->fetchAll();
 </div>
 
 
-<script src="script.js" defer></script>
+<script src="scripts/script.js" defer></script>
 </body>
 </html>

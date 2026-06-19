@@ -1,8 +1,7 @@
 <?php
-include 'conn.php';
+include '../includes/conn.php';
 
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+try {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
     $name = trim($_POST['name']);
@@ -12,7 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':password', $password);
     $stmt->bindParam(':name', $name);
     $stmt->execute();
-    header('location: login.php');
+    header('location: ../login.php');
     exit;
+} catch (Exception $e) {
+    echo "Er ging iets fout, probeer het opnieuw.";
 }
 ?>

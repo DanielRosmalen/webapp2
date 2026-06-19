@@ -1,5 +1,3 @@
-<?php
-        ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styling/style.css">
 </head>
 <body>
 
 <div class="form-box">
-    <form method="post" action="reg.php" class="form-card">
+    <form method="post" action="action/reg.php" class="form-card">
         <div class="card-title">
             <img src="assets/tegna_logo.png" alt="Logo" width="100" height="39">
             <h1>Registeren</h1>

@@ -1,18 +1,10 @@
 <?php
 session_start();
 
-include 'conn.php';
+include './includes/conn.php';
+include './includes/account-include.php';
 
-$user_id = $_SESSION['id'];
 
- $sql = "SELECT boekingen.id AS boeking_id, trips.*
-         FROM boekingen
-         JOIN trips ON boekingen.trip_id = trips.id
-         WHERE boekingen.user_id = :user_id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':user_id', $user_id);
-$stmt->execute();
-$boekingen  = $stmt->fetchAll();
 
 ?>
 <!doctype html>
@@ -23,7 +15,7 @@ $boekingen  = $stmt->fetchAll();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styling/style.css">
 </head>
 <body>
 <div class="account-layout">
@@ -35,7 +27,7 @@ $boekingen  = $stmt->fetchAll();
         <button type="submit" name="boekingen" value="boekingen">Mijn Boekingen</button>
         <button type="submit" name="review" value="review">Review Plaatsen</button>
     </form>
-    <form method="post" action="logout.php" class="account-logout">
+    <form method="post" action="action/logout.php" class="account-logout">
         <button type="submit" name="loguit">uitloggen</button>
     </form>
 </div>
@@ -61,7 +53,7 @@ if (isset($_GET['boekingen'])) {
         </div>
         <h2><?php echo $boeking['beschrijving'] ?></h2>
     </div>
-    <form method="post" action="annuleren.php">
+    <form method="post" action="action/annuleren.php">
         <input type="hidden" name="boeking_id" value="<?php echo $boeking['boeking_id']; ?>">
         <button type="submit" name="cancel" class="cancel-button">Annuleer Reis</button>
     </form>
@@ -72,7 +64,7 @@ if (isset($_GET['boekingen'])) {
 <?php if (isset($_GET['review'])) { ?>
 
 <div class="form-box">
-    <form method="post" action="review.php" class="form-card">
+    <form method="post" action="action/review.php" class="form-card">
         <div class="card-title">
         <img src="assets/tegna_logo.png" alt="logo" width="100" height="39">
         <h1>Review plaatsen</h1>

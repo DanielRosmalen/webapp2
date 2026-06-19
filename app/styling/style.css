@@ -15,7 +15,7 @@ body {
 
 @font-face {
     font-family: "Playfair-Italic";
-    src: url('assets/playfair_font/PlayfairDisplay-Italic.ttf');
+    src: url('../assets/playfair_font/PlayfairDisplay-Italic.ttf');
 }
 
 .navbar {
@@ -71,7 +71,7 @@ body {
 
 .header {
     display: flex;
-    background-image: url("assets/background_header.png");
+    background-image: url("../assets/background_header.png");
     background-size: cover;
     background-position: center;
     width: 100%;
