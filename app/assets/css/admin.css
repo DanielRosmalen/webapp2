@@ -14,12 +14,12 @@ body{
     justify-content: space-between;
     width: 260px;
     height: 100vh;
-    background-color: #2c3e5e;  
+    background-color: #C9A87C;  
 }
 
 .side-titel-box {
     padding: 30px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid white;
 }
 
 .side-titel {
@@ -29,7 +29,7 @@ body{
 }
 
 .side-subtitel {
-    color: rgba(255, 255, 255, 0.35);
+    color: white;
     font-size: 13px;
     margin-top: 4px;
 }
@@ -43,7 +43,7 @@ body{
 
 .side-menu-item {
     padding: 14px 24px;
-    color: rgba(255, 255, 255, 0.45);
+    color: white;
     font-size: 16px;
     cursor: pointer;
     background: none;
@@ -58,7 +58,7 @@ body{
     align-items: center;
     gap: 14px;
     padding: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid white;
 }
 
 .user-img {
@@ -97,7 +97,7 @@ main {
 .main-titel {
     font-size: 32px;
     font-weight: 500;
-    color: #2c3e5e;
+    color: #C9A87C;
 }
 
 .main-datum {
@@ -108,7 +108,7 @@ main {
 
 .main-topbar a {
     font-size: 16px;
-    color: #aaaaaa;
+    color: black;
     text-decoration: none;
 }
 
@@ -139,7 +139,7 @@ main {
 .stats-cijfer {
     font-size: 42px;
     font-weight: 500;
-    color: #2c3e5e;
+    color: #C9A87C;
 }
 
 .trips-container {
@@ -162,7 +162,7 @@ main {
 .trip-locatie {
     font-size: 20px;
     font-weight: 500;
-    color: #2c3e5e;
+    color: #C9A87C;
 }
 
 .trip-actions form {
@@ -177,7 +177,7 @@ main {
     cursor: pointer;
     border: 1px solid #e2e2e2;
     background: #f9f9f9;
-    color: #2c3e5e;
+    color: #C9A87C;
     font-weight: 500;
 }
 
@@ -185,11 +185,77 @@ main {
 
 .btn-toevoegen {
     padding: 14px 24px;
-    background-color: #2c3e5e;
+    background-color: #C9A87C;
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
     font-weight: 500;
+}
+.reviews-container {
+    padding: 40px 0;
+}
+
+.review-row {
+    padding: 24px 30px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-user-info {
+    font-size: 15px;
+    color: #aaaaaa;
+    margin-bottom: 6px;
+}
+
+.review-onderwerp {
+    font-size: 20px;
+    font-weight: 500;
+    color: #C9A87C;
+    margin-bottom: 6px;
+}
+
+.review-beschrijving {
+    font-size: 16px;
+    color: #C9A87C;
+    margin-bottom: 14px;
+}
+.review-content{
+    display: flex;
+    flex-direction: column;
+}
+.boeking-container {
+    padding: 40px 0;
+}
+
+.boeking-row {
+    padding: 24px 30px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.boeking-user-info {
+    font-size: 15px;
+    color: #aaaaaa;
+    margin-bottom: 6px;
+}
+
+.boeking-onderwerp {
+    font-size: 20px;
+    font-weight: 500;
+    color: #C9A87C;
+    margin-bottom: 6px;
+}
+.boeking-content{
+    display: flex;
+    flex-direction: column;
 }

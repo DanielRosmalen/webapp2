@@ -28,7 +28,7 @@
                     <img src="assets/img/lock.png" alt="" class="input-icon">
                 </div>
                 <div class="remember-forgot">
-                    <a href="#">Forgot password?</a>
+                    <a href="index.php">Geen admin</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
             </form>

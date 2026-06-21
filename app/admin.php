@@ -1,10 +1,7 @@
 <?php
 include './acties/overzicht.php';
-$sql = "SELECT * FROM trips";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$trips = $stmt->fetchAll();
-?>
+include './acties/logcontrole.php'
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +27,8 @@ $trips = $stmt->fetchAll();
                             <button type="submit" name="overzicht" class="side-menu-item actief">Overzicht</button>
                             <button type="submit" name="trips" class="side-menu-item">trips</button>
                             <button type="submit" name="reviews" class="side-menu-item">reviews</button>
+                            <button type="submit" name="boekingen" class="side-menu-item">boekingen</button>
+
                         </form>
                     </nav>
                 </div>
@@ -46,7 +45,7 @@ $trips = $stmt->fetchAll();
     </header>
 
     <main>
-        <?php if (isset($_GET['overzicht']) || (!isset($_GET['trips']) && !isset($_GET['bewerken']) && !isset($_GET['verwijderen']) && !isset($_GET['toevoegen']))) { ?>
+        <?php if (isset($_GET['overzicht']) || (!isset($_GET['trips']) && !isset($_GET['bewerken']) && !isset($_GET['verwijderen']) && !isset($_GET['toevoegen']) && !isset($_GET['reviews']) && !isset($_GET['boekingen']))) { ?>
             <div class="main-topbar">
                 <div>
                     <h1 class="main-titel">Overzicht</h1>
@@ -56,7 +55,7 @@ $trips = $stmt->fetchAll();
             </div>
 
             <div class="stats-container">
-                <div class="stats-box"> 
+                <div class="stats-box">
                     <p class="stats-label">Boekingen</p>
                     <h2 class="stats-cijfer"><?php echo count($boekingen); ?></h2>
                 </div>
@@ -98,7 +97,7 @@ $trips = $stmt->fetchAll();
             </div>
         <?php } ?>
         <?php
-              if (isset($_GET['bewerken'])) {
+        if (isset($_GET['bewerken'])) {
             $id = $_GET['bewerken'];
             $stmt = $pdo->prepare("SELECT * FROM trips WHERE id = :id");
             $stmt->bindParam(':id', $id);
@@ -106,17 +105,17 @@ $trips = $stmt->fetchAll();
             $trip = $stmt->fetch();
             ?>
 
-        <form action="./acties/bewerken.php" method="post">
-            <textarea name="locatie" id="locatie"><?php echo $trip['locatie'] ?></textarea>
-            <textarea name="land" id="land"><?php echo $trip['land'] ?></textarea>
-            <textarea name="prijs" id="prijs"><?php echo $trip['prijs'] ?></textarea>
-            <textarea name="duur" id="duur"><?php echo $trip['duur'] ?></textarea>
-            <textarea name="beschrijving" id="beschrijving"><?php echo $trip['beschrijving'] ?></textarea>
-            <textarea name="foto" id="foto"><?php echo $trip['foto'] ?></textarea>
-            <input type="hidden" name="id" value="<?php echo $trip['id'] ?>"></input>
-            <input type="submit" name="submit"></input>
-        </form>
-    <?php } ?>
+            <form action="./acties/bewerken.php" method="post">
+                <textarea name="locatie" id="locatie"><?php echo $trip['locatie'] ?></textarea>
+                <textarea name="land" id="land"><?php echo $trip['land'] ?></textarea>
+                <textarea name="prijs" id="prijs"><?php echo $trip['prijs'] ?></textarea>
+                <textarea name="duur" id="duur"><?php echo $trip['duur'] ?></textarea>
+                <textarea name="beschrijving" id="beschrijving"><?php echo $trip['beschrijving'] ?></textarea>
+                <textarea name="foto" id="foto"><?php echo $trip['foto'] ?></textarea>
+                <input type="hidden" name="id" value="<?php echo $trip['id'] ?>"></input>
+                <input type="submit" name="submit"></input>
+            </form>
+        <?php } ?>
 
         <?php if (isset($_GET['verwijderen'])) {
             $id = $_GET['verwijderen'];
@@ -143,6 +142,61 @@ $trips = $stmt->fetchAll();
                 <input type="submit" name="submit">
             </form>
         <?php } ?>
+        <?php if (isset($_GET['reviews'])) { ?>
+            <div class="main-topbar">
+                <div>
+                    <h1 class="main-titel">Reviews Beheer</h1>
+                    <p class="main-datum">Overzicht over alle reviews</p>
+                </div>
+            </div>
+
+            <div class="reviews-container">
+                <?php foreach ($reviews as $review) { ?>
+                    <div class="review-row">
+                        <div class="review-content">
+                            <p class="">User ID: <?php echo $review['user_id']; ?> <span>Sterren:
+                                    <?php echo $review['sterren']; ?></span></p>
+                            <h3 class="review-onderwerp"><?php echo $review['onderwerp']; ?></h3>
+                            <p class="review-beschrijving"><?php echo $review['beschrijving']; ?></p>
+                        </div>
+                        <div class="review-actions">
+                            <form action="./acties/verwijderenR.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $review['id']; ?>">
+                                <button type="submit" name="verwijderen" value="<?php echo $review['id']; ?>"
+                                    class="btn-actie">verwijderen</button>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if (isset($_GET['boekingen'])) { ?>
+            <div class="main-topbar">
+                <div>
+                    <h1 class="main-titel">boekingen Beheer</h1>
+                    <p class="main-datum">Overzicht over alle boekingen</p>
+                </div>
+            </div>
+
+            <div class="boeking-container">
+                <?php foreach ($boekingen as $boeking) { ?>
+                    <div class="boeking-row">
+                        <div class="boeking-content">
+                            <p class="">User ID: <?php echo $boeking['user_id']; ?></p>
+                            <h3 class="boeking-onderwerp"><?php echo $boeking['trip_id']; ?></h3>
+                        </div>
+                        <div class="boeking-actions">
+                            <form action="./acties/verwijderenB.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $boeking['id']; ?>">
+                                <button type="submit" name="verwijderen" value="<?php echo $boeking['id']; ?>"
+                                    class="btn-actie">verwijderen</button>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        </div>
     </main>
 </body>
 
