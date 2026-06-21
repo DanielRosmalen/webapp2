@@ -32,6 +32,13 @@ include './includes/account-include.php';
     </form>
 </div>
     </div>
+    <?php if (!isset($_GET['boekingen']) && !isset($_GET['review'])) { ?>
+        <div class="account-info">
+            <h1><?php echo $users['name'];?></h1>
+            <h2><?php echo $users['email'];?></h2>
+            <p><?php echo $users['created'];?></p>
+        </div>
+    <?php } ?>
     <div class="content">
         <div class="boekingen">
 <?php

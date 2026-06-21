@@ -18,4 +18,15 @@ $boekingen  = $stmt->fetchAll();
 catch (Exception $e) {
     echo "Er ging iets fout, probeer het opnieuw";
 }
+
+try {
+    $sql = "SELECT * FROM users WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $user_id);
+    $stmt->execute();
+    $users = $stmt->fetch();
+}
+catch (Exception $e) {
+    "Er ging iets fout, probeer het opnieuw";
+}
 ?>

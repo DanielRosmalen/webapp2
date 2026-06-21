@@ -22,15 +22,15 @@ include './includes/index-include.php';
             <img src="assets/tegna_logo.png" alt="logo">
         </div>
         <div class="menu">
-        <a href="index.html" class="">Bestemmingen</a>
-        <a href="index.html" class="">Ervaringen</a>
-        <a href="index.html" class="">Over ons</a>
-        <a href="index.html" class="">Boek</a>
+        <a href="#bestemmingen" class="">Bestemmingen</a>
+        <a href="#ervaringen" class="">Ervaringen</a>
+        <a href="#bestemmingen" class="">Over ons</a>
+        <a href="#ervaringen" class="">Boek</a>
         </div>
         <?php if (!isset($_SESSION['ingelogd'])) {
         echo '<div class="login">';
             echo '<a href="login.php">Inloggen</a>';
-            echo '<a href="#" class="btn">Boek je reis</a>';
+            echo '<a href="#bestemmingen" class="btn">Boek je reis</a>';
         echo '</div>';
        } ?>
         <?php if (isset($_SESSION['ingelogd'])) {
@@ -103,7 +103,7 @@ include './includes/index-include.php';
         </div>
    <?php } ?>
 
-<div class="location-container">
+<div class="location-container" id="bestemmingen">
     <div class="location-text">
         <h1>Plekken om <span class="highlight-2">te <br>
                 dromen</span>  <br>
@@ -159,7 +159,7 @@ include './includes/index-include.php';
 
 </div>
 
-<div class="review-slides">
+<div class="review-slides" id="ervaringen">
     <button type="button" class="arrow-button-3">
         <img src="assets/Vector.png" alt="">
     </button>

@@ -461,11 +461,16 @@ review-subject {
 }
 
 .sidebar button {
+    width: 100%;
     text-align: left;
+    padding: 14px 18px;
     border: none;
-    border-radius: none;
+    border-radius: 8px;
+    background-color: #1f3553;
     color: white;
-    background-color: #142334;
+    font-family: "Inter";
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
     cursor: pointer;
 }
 
@@ -514,6 +519,26 @@ review-subject {
     display: none;
 }
 
+.account-info {
+    max-width: 480px;
+    margin: 40px;
+    padding: 32px;
+    background: white;
+    border-radius: 20px;
+}
+.account-info h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+.account-info h2 {
+    font-weight: normal;
+    color: gray;
+    margin-bottom: 24px;
+}
+.account-info p {
+    color: #999;
+}
+
 @media (max-width: 768px) {
     .account-layout {
         flex-direction: column;
@@ -531,6 +556,13 @@ review-subject {
     .sidebar:hover .menu-items {
         display: flex;
         flex-direction: column;
+    }
+
+    .account-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
     }
 }
 
