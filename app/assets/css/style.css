@@ -1,0 +1,18 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+.gevoel {
+   display: flex;
+   background-color: #142334;
+   flex-direction: column;
+   width: 100%;
+}
+.grote-blok{
+   display: flex;
+}
+.blok{
+   width: 20%;
+   height: 200px;
+   background-color: #fff;
+}
